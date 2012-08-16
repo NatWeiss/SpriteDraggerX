@@ -1,0 +1,14 @@
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+	#import <UIKit/UIKit.h>
+#endif
+
+#ifdef __cplusplus
+	#include <string>
+	#include <sstream>
+	#include <memory>
+	#include <list>
+	#include <stdlib.h>
+	#include "cocos2d.h"
+#endif
