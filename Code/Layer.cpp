@@ -50,6 +50,9 @@ bool Layer::isTouchingSprite(CCTouch* touch)
 
 void Layer::ccTouchesBegan(CCSet* touches, CCEvent* event)
 {
+	// reset touch offset
+	this->touchOffset = CCPointZero;
+	
 	for( auto it = touches->begin(); it != touches->end(); it++) 
 	{
 		CCTouch* touch = dynamic_cast<CCTouch*>(*it);
@@ -70,7 +73,7 @@ void Layer::ccTouchesMoved(CCSet* touches, CCEvent* event)
 		CCTouch* touch = dynamic_cast<CCTouch*>(*it);
 
 		// set the new sprite position
-		if( touch )
+		if( touch && touchOffset.x && touchOffset.y )
 			this->sprite->setPosition(ccpAdd(this->touchToPoint(touch), this->touchOffset));
 	}
 }
@@ -80,7 +83,7 @@ void Layer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 	for( auto it = touches->begin(); it != touches->end(); it++) 
 	{
 		CCTouch* touch = dynamic_cast<CCTouch*>(*it);
-		if( touch )
+		if( touch && touchOffset.x && touchOffset.y  )
 		{
 			// set the new sprite position
 			this->sprite->setPosition(ccpAdd(this->touchToPoint(touch), this->touchOffset));
