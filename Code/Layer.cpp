@@ -88,6 +88,10 @@ void Layer::ccTouchesEnded(CCSet* touches, CCEvent* event)
 			// set the new sprite position
 			this->sprite->setPosition(ccpAdd(this->touchToPoint(touch), this->touchOffset));
 
+			// stop any existing actions are reset the scale
+			this->sprite->stopAllActions();
+			this->sprite->setScale(1.0f);
+
 			// animate letting go of the sprite
 			this->sprite->runAction(CCSequence::create(
 				CCScaleBy::create(0.125f, 1.111f),
