@@ -5,14 +5,15 @@
 // a CCScene instead of having to always write cocos2d::CCScene
 #include "cocos2d.h"
 using namespace cocos2d;
+using cocos2d::Point;
 
-// now include our Layer class
-#include "Layer.h"
+// now include our MyLayer class
+#include "MyLayer.h"
 
 ///
 /// The main SpriteDragger application class
 ///
-class SpriteDragger : private CCApplication
+class SpriteDragger : private Application
 {
 	public:
 		virtual bool applicationDidFinishLaunching();

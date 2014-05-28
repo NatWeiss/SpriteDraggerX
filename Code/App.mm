@@ -1,7 +1,7 @@
 
 #import "App.h"
 #import "SpriteDragger.h"
-#import "EAGLView.h"
+#import "CCEAGLView.h"
 
 @implementation App
 
@@ -17,7 +17,7 @@
 		[self setupGraphics];
 
 		// run the CCApplication (which runs our static sharedApplication's applicationDidFinishLaunching)
-		cocos2d::CCApplication::sharedApplication().run();
+		Application::getInstance()->run();
 		
 		return YES;
 	}
@@ -29,35 +29,38 @@
 	{
 		// add the view controller's view to the window and display.
 		window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-		EAGLView* __glView = [EAGLView viewWithFrame:[window bounds]
+		CCEAGLView* eaglView = [CCEAGLView viewWithFrame:[window bounds]
 			pixelFormat: kEAGLColorFormatRGBA8
-			depthFormat: GL_DEPTH_COMPONENT16
+			depthFormat: GL_DEPTH24_STENCIL8_OES // was GL_DEPTH_COMPONENT16
 			preserveBackbuffer: NO
 			sharegroup: nil
 			multiSampling: NO
 			numberOfSamples:0];
 
 		// enable multi-touch on ios (android is automatic)
-		[__glView setMultipleTouchEnabled:YES];
+		[eaglView setMultipleTouchEnabled:YES];
 
 		// use RootViewController manage EAGLView
 		viewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
 		viewController.wantsFullScreenLayout = YES;
-		viewController.view = __glView;
+		viewController.view = eaglView;
 
 		// set RootViewController to window
-		[window addSubview:__glView];
+		if( [[UIDevice currentDevice].systemVersion floatValue] < 6.0 )
+			[window addSubview: viewController.view];
+		else
+			[window setRootViewController: viewController];
 		[window makeKeyAndVisible];
 
 		// hide the status bar
 		[[UIApplication sharedApplication] setStatusBarHidden: YES];
 
-		// setup our shared open gl view
-		CCDirector* director = CCDirector::sharedDirector();
-		director->setOpenGLView(&CCEGLView::sharedOpenGLView());
-		
+		// setting the GLView should be done after creating the RootViewController
+		GLView *glview = GLView::createWithEAGLView(eaglView);
+		Director::getInstance()->setOpenGLView(glview);
+
 		// set the frame rate
-		director->setAnimationInterval(1.0 / 60.0f);
+		Director::getInstance()->setAnimationInterval(1.0 / 60.0f);
 	}
 
 	-(void) dealloc
@@ -75,22 +78,22 @@
 
 	-(void) applicationWillResignActive:(UIApplication*)application
 	{
-		cocos2d::CCDirector::sharedDirector()->pause();
+		Director::getInstance()->pause();
 	}
 
 	-(void) applicationDidBecomeActive:(UIApplication*)application
 	{
-		cocos2d::CCDirector::sharedDirector()->resume();
+		Director::getInstance()->resume();
 	}
 
 	-(void) applicationDidEnterBackground:(UIApplication*)application
 	{
-		cocos2d::CCApplication::sharedApplication().applicationDidEnterBackground();
+		Application::getInstance()->applicationDidEnterBackground();
 	}
 
 	-(void) applicationWillEnterForeground:(UIApplication*)application
 	{
-		cocos2d::CCApplication::sharedApplication().applicationWillEnterForeground();
+		Application::getInstance()->applicationWillEnterForeground();
 	}
 
 	-(void) applicationWillTerminate:(UIApplication*)application
@@ -99,7 +102,7 @@
 
 	-(void) applicationDidReceiveMemoryWarning:(UIApplication*)application
 	{
-		 cocos2d::CCDirector::sharedDirector()->purgeCachedData();
+		Director::getInstance()->purgeCachedData();
 	}
 
 @end
@@ -107,9 +110,33 @@
 
 @implementation RootViewController
 
+	// iOS 5 and older uses this method
 	-(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 	{
 		return UIInterfaceOrientationIsPortrait( interfaceOrientation );
+	}
+
+	// iOS 6 and newer uses supportedInterfaceOrientations & shouldAutorotate
+	-(NSUInteger) supportedInterfaceOrientations
+	{
+		#ifdef __IPHONE_6_0
+			return UIInterfaceOrientationMaskPortrait;
+		#endif
+	}
+
+	-(BOOL) shouldAutorotate
+	{
+		return YES;
+	}
+
+	-(UIInterfaceOrientation) preferredInterfaceOrientationForPresentation
+	{
+		return self.interfaceOrientation;
+	}
+
+	-(BOOL) prefersStatusBarHidden
+	{
+		return YES;
 	}
 
 @end
