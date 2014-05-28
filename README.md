@@ -18,10 +18,10 @@ SpriteDraggerX uses [RapidGame](http://wizardfu.com/rapidgame)'s prebuilt Cocos2
 This will symlink a `lib` folder to RapidGame's prebuilt headers and libraries. You'll then be able to compile and run SpriteDraggerX.
 
 
-Cocos2D-X
----------
+Topics
+------
 
-With Cocos2d-X you can write your game in C++ and publish it to multiple platforms, including iOS, Android, Windows and Mac. This project shows you how to setup a simple iOS project. If you'd like to learn more about creating a complete game with project files for all the above mentioned platforms, then check out the [free Cocos2D-X book](http://paralaxer.com/cocos2d-x-book/) at Paralaxer.com.
+If you'd like to learn more about creating a complete game, then check out the [free Cocos2D-X book](http://paralaxer.com/cocos2d-x-book/) at Paralaxer.com.
 
 Topics covered in the SpriteDraggerX source code:
 
