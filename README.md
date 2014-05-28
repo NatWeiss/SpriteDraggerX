@@ -1,7 +1,7 @@
 SpriteDraggerX
 ==============
 
-A clean, minimal Cocos2D-X iOS example project showing you how to drag a sprite around the screen.
+A minimal Cocos2D-X iPhone / iPad project illustrating how to drag a sprite around the screen.
 
 
 Setup
@@ -21,21 +21,18 @@ This will symlink a `lib` folder to RapidGame's prebuilt headers and libraries. 
 Cocos2D-X
 ---------
 
-With Cocos2d-X you can write your game in C++ and publish it to multiple platforms, including iOS, Android, Windows and Mac. This project shows you how to setup a simple iOS project. If you'd like to learn more about creating a complete game with project files for all the above mentioned platforms, then check out the Paralaxer project:
-
-http://paralaxer.com
+With Cocos2d-X you can write your game in C++ and publish it to multiple platforms, including iOS, Android, Windows and Mac. This project shows you how to setup a simple iOS project. If you'd like to learn more about creating a complete game with project files for all the above mentioned platforms, then check out the [free Cocos2D-X book](http://paralaxer.com/cocos2d-x-book/) at Paralaxer.com.
 
 Topics covered in the SpriteDraggerX source code:
 
- * Creating a minimal App delegate class to handle creating the window, the GL view and initializing Cocos2D-X
- * Receiving ccTouches events from Cocos2D-X and translating them into dragging a CCSprite around the screen
- * Animating the sprite via runAction
- * CCDirector, CCScene, CCSprite, CCColorLayer, CCSequence, CCScaleBy
+ * Writing a minimal app delegate class to handle creating the window and GL view
+ * Receiving touch events from Cocos2D-X and translating them into dragging a sprite around the screen
+ * Animating the sprite via `runAction`
+ * `Director`, `Scene`, `Sprite`, `ColorLayer`, `Sequence`, `ScaleBy`
 
 Notes:
 
- * Includes an example Xcode project.
- * Uses Cocos2d-X version 2.0.1
+ * Includes an Xcode project
  * Objective C is required to initialize iOS (App.h & App.mm)
  * All other code is pure C++
 
