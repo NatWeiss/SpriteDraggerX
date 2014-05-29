@@ -24,7 +24,7 @@ MyLayer::MyLayer()
 	listener->onTouchesMoved = CC_CALLBACK_2(self::onTouchesMoved, this);
 	listener->onTouchesEnded = CC_CALLBACK_2(self::onTouchesEnded, this);
 	listener->onTouchesCancelled = CC_CALLBACK_2(self::onTouchesEnded, this);
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
 }
 
 MyLayer::~MyLayer()
