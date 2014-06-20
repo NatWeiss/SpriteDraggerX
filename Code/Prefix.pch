@@ -10,5 +10,4 @@
 	#include <memory>
 	#include <list>
 	#include <stdlib.h>
-	#include "cocos2d.h"
 #endif

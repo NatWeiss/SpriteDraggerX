@@ -1,15 +1,14 @@
 
 #import "App.h"
-#import "SpriteDragger.h"
 #import "CCEAGLView.h"
+
+#include "cocos2d.h"
+using namespace cocos2d;
 
 @implementation App
 
 	#pragma mark -
 	#pragma mark App start
-
-	// the main application instance
-	static SpriteDragger s_sharedApplication;
 
 	-(BOOL) application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 	{
