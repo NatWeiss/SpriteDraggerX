@@ -1,13 +1,13 @@
 SpriteDraggerX
 ==============
 
-A minimal Cocos2D-X iPhone / iPad project illustrating how to drag a sprite around the screen.
+A minimal cocos2d-x iPhone / iPad project illustrating how to drag a sprite around the screen.
 
 
 Setup
 -----
 
-SpriteDraggerX uses [RapidGame](http://wizardfu.com/rapidgame)'s prebuilt Cocos2D-X libraries. Make sure you have [Node](http://nodejs.org/download/) and [Git](http://git-scm.com/downloads), then:
+SpriteDraggerX uses [RapidGame](https://github.com/NatWeiss/RapidGame)'s prebuilt Cocos2D-X libraries. Make sure you have [Node](http://nodejs.org/download/) and [Git](http://git-scm.com/downloads), then:
 
 	sudo npm install rapidgame -g
 	rapidgame prebuild
@@ -21,7 +21,7 @@ This will symlink a `lib` folder to RapidGame's prebuilt headers and libraries. 
 Topics
 ------
 
-If you'd like to learn more about creating a complete game, then check out the [free Cocos2D-X book](http://paralaxer.com/cocos2d-x-book/) at Paralaxer.com.
+If you'd like to learn more about creating a complete game, then check out the [free Cocos2D-X book](http://wizardfu.com/book/cocos2d-x/) at WizardFu.com.
 
 Topics covered in the SpriteDraggerX source code:
 

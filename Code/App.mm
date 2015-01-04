@@ -1,6 +1,6 @@
 
 #import "App.h"
-#import "CCEAGLView.h"
+#import "CCEAGLView-ios.h"
 
 #include "cocos2d.h"
 using namespace cocos2d;
@@ -55,7 +55,7 @@ using namespace cocos2d;
 		[[UIApplication sharedApplication] setStatusBarHidden: YES];
 
 		// setting the GLView should be done after creating the RootViewController
-		GLView *glview = GLView::createWithEAGLView(eaglView);
+		GLView *glview = GLViewImpl::createWithEAGLView(eaglView);
 		Director::getInstance()->setOpenGLView(glview);
 
 		// set the frame rate

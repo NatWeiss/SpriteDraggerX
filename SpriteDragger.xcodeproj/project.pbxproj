@@ -15,6 +15,7 @@
 		415295451953DD86006820F4 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 415295441953DD86006820F4 /* App.cpp */; };
 		415295471953DDE8006820F4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415295461953DDE8006820F4 /* MediaPlayer.framework */; };
 		415E65E015DC106A00B30E1A /* MyLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 415E65DF15DC106A00B30E1A /* MyLayer.cpp */; };
+		4188F39A1A591E1B00017FAC /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4188F3991A591E1B00017FAC /* GameController.framework */; };
 		41DA4F60145F08C3009CE11D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA4F5F145F08C3009CE11D /* UIKit.framework */; };
 		41DA4F62145F08C3009CE11D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA4F61145F08C3009CE11D /* Foundation.framework */; };
 		41DA4F64145F08C3009CE11D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DA4F63145F08C3009CE11D /* CoreGraphics.framework */; };
@@ -37,6 +38,7 @@
 		415295461953DDE8006820F4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		415E65DE15DC106A00B30E1A /* MyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLayer.h; path = Code/MyLayer.h; sourceTree = "<group>"; };
 		415E65DF15DC106A00B30E1A /* MyLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MyLayer.cpp; path = Code/MyLayer.cpp; sourceTree = "<group>"; };
+		4188F3991A591E1B00017FAC /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		41DA4F5B145F08C2009CE11D /* SpriteDragger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteDragger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41DA4F5F145F08C3009CE11D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		41DA4F61145F08C3009CE11D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4188F39A1A591E1B00017FAC /* GameController.framework in Frameworks */,
 				415295471953DDE8006820F4 /* MediaPlayer.framework in Frameworks */,
 				41416D3F19369B9600563753 /* OpenAL.framework in Frameworks */,
 				41416D3D19369B8D00563753 /* CoreMotion.framework in Frameworks */,
@@ -103,6 +106,7 @@
 		41DA4F5E145F08C2009CE11D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4188F3991A591E1B00017FAC /* GameController.framework */,
 				415295461953DDE8006820F4 /* MediaPlayer.framework */,
 				41416D3E19369B9600563753 /* OpenAL.framework */,
 				41416D3C19369B8D00563753 /* CoreMotion.framework */,
@@ -156,7 +160,7 @@
 		41DA4F52145F08C2009CE11D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Wizard Fu, Inc.";
 			};
 			buildConfigurationList = 41DA4F55145F08C2009CE11D /* Build configuration list for PBXProject "SpriteDragger" */;
@@ -207,6 +211,7 @@
 		41DA4F85145F08C3009CE11D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -227,6 +232,7 @@
 		41DA4F86145F08C3009CE11D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -245,7 +251,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -278,7 +283,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Code/Prefix.pch;
